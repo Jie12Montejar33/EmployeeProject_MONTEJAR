@@ -1,0 +1,28 @@
+import verison1.BasePlusCommisonEmployee;
+import verison1.CommisionEmployee;
+import verison1.HourlyEmployee;
+import verison1.PieceWorkerEmployee;
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+public class Main {
+    public static void main(String[] args) {
+        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+        // to see how IntelliJ IDEA suggests fixing it.
+        HourlyEmployee h1 = new HourlyEmployee(12, "name2", 13, 40);
+
+        h1.displayHourlyEmployee();
+        double r = h1.computeSalary();
+        System.out.println(r);
+
+        PieceWorkerEmployee p1 = new PieceWorkerEmployee(12, "me", 34, 12);
+        double r2 = p1.computerSalary();
+        System.out.println(r2);
+
+        CommisionEmployee em1 = new CommisionEmployee(13, "andrei",1200);
+
+        System.out.println(em1.computerSalary());
+
+        BasePlusCommisonEmployee b1 = new BasePlusCommisonEmployee(3, "medd", 134, 50);
+    }
+}
