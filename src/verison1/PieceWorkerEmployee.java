@@ -59,7 +59,7 @@ public class PieceWorkerEmployee {
         this.ratePerPiece = ratePerPiece;
     }
 
-    public double computerSalary(){
+    public double computeSalary(){
         double res = 0;
         double bsp = 0;
         double bonusp = 0;
@@ -72,16 +72,19 @@ public class PieceWorkerEmployee {
     }
 
     public void displayPieceWorkerEmployee(){
-        System.out.println(toString());
+        System.out.printf("[ID = %d, Name = %s, TotalPiecesFinished = %.2f, ratePerPiece = %.2f, salary = %.2f]\n", empID, empName, totalPiecesFinished, ratePerPiece, computeSalary());
+
     }
 
     @Override
     public String toString() {
-        return "PieceWorkerEmployee{" +
-                "empID=" + empID +
-                ", empName='" + empName + '\'' +
-                ", totalPiecesFinished=" + totalPiecesFinished +
-                ", ratePerPiece=" + ratePerPiece +
-                '}';
+        StringBuilder sb = new StringBuilder("PieceWorkerEmployee{");
+        sb.append("empID= ").append(empID);
+        sb.append(", empName= ").append(empName);
+        sb.append(", totalPiecesFinished= ").append(totalPiecesFinished);
+        sb.append(", ratePerPiece= ").append(ratePerPiece);
+        sb.append('}');
+
+        return sb.toString();
     }
 }

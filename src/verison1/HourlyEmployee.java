@@ -73,7 +73,7 @@ public class HourlyEmployee {
     }
 
     public void displayHourlyEmployee(){
-        System.out.println(toString());
+        System.out.printf("[ID = %d, Name = %s, TotalHoursWorked = %.2f, ratePerHour = %.2f, salary = %.2f]\n", empID, empName, totalHoursWorked, ratePerHour, computeSalary());
     }
 
     @Override
@@ -85,4 +85,6 @@ public class HourlyEmployee {
                 ", ratePerHour=" + ratePerHour +
                 '}';
     }
+
+
 }

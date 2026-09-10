@@ -15,14 +15,24 @@ public class Main {
         double r = h1.computeSalary();
         System.out.println(r);
 
+
         PieceWorkerEmployee p1 = new PieceWorkerEmployee(12, "me", 34, 12);
-        double r2 = p1.computerSalary();
+        p1.displayPieceWorkerEmployee();
+        double r2 = p1.computeSalary();
         System.out.println(r2);
+        System.out.println(p1.toString());
+
+
 
         CommisionEmployee em1 = new CommisionEmployee(13, "andrei",1200);
+        em1.displayComissionEmployee();
 
-        System.out.println(em1.computerSalary());
+        System.out.println(em1.computeSalary());
 
         BasePlusCommisonEmployee b1 = new BasePlusCommisonEmployee(3, "medd", 134, 50);
+        b1.displayBasePlusCommissionEmployee();
+        double ls34 = b1.computeSalary();
+
+        System.out.println(ls34);
     }
 }

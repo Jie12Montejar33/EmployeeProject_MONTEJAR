@@ -46,7 +46,7 @@ public class CommisionEmployee {
         this.empName = empName;
     }
 
-    public double computerSalary() {
+    public double computeSalary() {
         double res = 0;
         if(totalSale < 50000){
             res = 0.05 * totalSale;
@@ -62,5 +62,18 @@ public class CommisionEmployee {
         }
 
         return res;
+    }
+
+    public void displayComissionEmployee(){
+        System.out.printf("[ID = %d, Name = %s, TotalSales = %.2f, salary = %.2f]\n", empId, empName, totalSale, computeSalary());
+    }
+
+    @Override
+    public String toString() {
+        return "CommisionEmployee{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", totalSale=" + totalSale +
+                '}';
     }
 }

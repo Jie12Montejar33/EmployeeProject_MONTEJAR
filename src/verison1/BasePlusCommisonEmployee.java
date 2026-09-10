@@ -59,7 +59,7 @@ public class BasePlusCommisonEmployee {
         this.empName = empName;
     }
 
-    public double computerSalary() {
+    public double computeSalary() {
         double res = 0;
         double finalres = 0;
         if(totalSale < 50000){
@@ -81,7 +81,7 @@ public class BasePlusCommisonEmployee {
     }
 
     public void displayBasePlusCommissionEmployee(){
-        System.out.println(toString());
+        System.out.printf("[ID = %d, Name = %s, TotalSales = %.2f, BaseSalary = %.2f, salary = %.2f]\n", empID, empName, totalSale, baseSalary, computeSalary());
     }
 
     @Override
