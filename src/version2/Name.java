@@ -59,5 +59,10 @@ public class Name {
         this.suffix = suffix;
     }
 
-
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(100);
+        sb.append(lname).append(", ").append(fname).append(", ");
+        if()
+    }
 }
