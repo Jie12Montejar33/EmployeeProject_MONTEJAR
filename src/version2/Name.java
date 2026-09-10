@@ -13,6 +13,20 @@ public class Name {
         this.suffix = suffix;
     }
 
+    public Name(String fname, String lname, String suffix) {
+        this.fname = fname;
+        this.mi = " ";
+        this.lname = lname;
+        this.suffix = suffix;
+    }
+
+    public Name(String fname, String lname) {
+        this.fname = fname;
+        this.mi = " ";
+        this.lname = lname;
+        this.suffix = " ";
+    }
+
     public String getFname() {
         return fname;
     }
