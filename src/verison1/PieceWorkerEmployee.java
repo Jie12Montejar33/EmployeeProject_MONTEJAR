@@ -72,7 +72,7 @@ public class PieceWorkerEmployee {
     }
 
     public void displayPieceWorkerEmployee(){
-        System.out.printf("[ID = %d, Name = %s, TotalPiecesFinished = %.2f, ratePerPiece = %.2f, salary = %.2f]\n", empID, empName, totalPiecesFinished, ratePerPiece, computeSalary());
+        System.out.printf("[ID = %d, Name = %s, TotalPiecesFinished = %.2f, ratePerPiece = %.2f]\n", empID, empName, totalPiecesFinished, ratePerPiece);
 
     }
 
@@ -83,6 +83,7 @@ public class PieceWorkerEmployee {
         sb.append(", empName= ").append(empName);
         sb.append(", totalPiecesFinished= ").append(totalPiecesFinished);
         sb.append(", ratePerPiece= ").append(ratePerPiece);
+        sb.append(", Salary = ").append(computeSalary());
         sb.append('}');
 
         return sb.toString();

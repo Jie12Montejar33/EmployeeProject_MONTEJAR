@@ -81,16 +81,19 @@ public class BasePlusCommisonEmployee {
     }
 
     public void displayBasePlusCommissionEmployee(){
-        System.out.printf("[ID = %d, Name = %s, TotalSales = %.2f, BaseSalary = %.2f, salary = %.2f]\n", empID, empName, totalSale, baseSalary, computeSalary());
+        System.out.printf("[ID = %d, Name = %s, TotalSales = %.2f, BaseSalary = %.2f]\n", empID, empName, totalSale, baseSalary);
     }
 
     @Override
     public String toString() {
-        return "BasePlusCommisonEmployee{" +
-                "empID=" + empID +
-                ", empName='" + empName + '\'' +
-                ", totalSale=" + totalSale +
-                ", baseSalary=" + baseSalary +
-                '}';
+        StringBuilder sb = new StringBuilder("BasePlusCommisonEmployee{");
+        sb.append("empID= ").append(empID);
+        sb.append(", empName= ").append(empName);
+        sb.append(", totalSale = ").append(totalSale);
+        sb.append(", baseSalary = ").append(baseSalary);
+        sb.append(", Salary = ").append(computeSalary());
+        sb.append('}');
+
+        return sb.toString();
     }
 }

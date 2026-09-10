@@ -73,17 +73,20 @@ public class HourlyEmployee {
     }
 
     public void displayHourlyEmployee(){
-        System.out.printf("[ID = %d, Name = %s, TotalHoursWorked = %.2f, ratePerHour = %.2f, salary = %.2f]\n", empID, empName, totalHoursWorked, ratePerHour, computeSalary());
+        System.out.printf("[ID = %d, Name = %s, TotalHoursWorked = %.2f, ratePerHour = %.2f]\n", empID, empName, totalHoursWorked, ratePerHour);
     }
 
     @Override
     public String toString() {
-        return "HourlyEmployee{" +
-                "empID=" + empID +
-                ", empName='" + empName + '\'' +
-                ", totalHoursWorked=" + totalHoursWorked +
-                ", ratePerHour=" + ratePerHour +
-                '}';
+        StringBuilder sb = new StringBuilder("HourlyEmployee{");
+        sb.append("empID= ").append(empID);
+        sb.append(", empName= ").append(empName);
+        sb.append(", totalHoursWorked=").append(totalHoursWorked);
+        sb.append(", ratePerHour=").append(ratePerHour);
+        sb.append(", Salary = ").append(computeSalary());
+        sb.append('}');
+
+        return sb.toString();
     }
 
 

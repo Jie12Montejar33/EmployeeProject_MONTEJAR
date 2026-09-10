@@ -65,15 +65,18 @@ public class CommisionEmployee {
     }
 
     public void displayComissionEmployee(){
-        System.out.printf("[ID = %d, Name = %s, TotalSales = %.2f, salary = %.2f]\n", empId, empName, totalSale, computeSalary());
+        System.out.printf("[ID = %d, Name = %s, TotalSales = %.2f]\n", empId, empName, totalSale);
     }
 
     @Override
     public String toString() {
-        return "CommisionEmployee{" +
-                "empId=" + empId +
-                ", empName='" + empName + '\'' +
-                ", totalSale=" + totalSale +
-                '}';
+        StringBuilder sb = new StringBuilder("CommisionEmployee{");
+        sb.append("empID= ").append(empId);
+        sb.append(", empName= ").append(empName);
+        sb.append(", totalSale= ").append(totalSale);
+        sb.append(", Salary = ").append(computeSalary());
+        sb.append('}');
+
+        return sb.toString();
     }
 }
