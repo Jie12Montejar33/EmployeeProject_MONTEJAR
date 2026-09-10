@@ -47,21 +47,21 @@ public class CommisionEmployee {
     }
 
     public double computeSalary() {
-        double res = 0;
-        if(totalSale < 50000){
-            res = 0.05 * totalSale;
+        if (this.totalSale <= 0) {
+            return 0.0;
         }
-        else if(totalSale >= 50000 && totalSale <= 99999.99){
-            res = 0.10 * totalSale;
+        if (this.totalSale < 50000) {
+            return this.totalSale * 0.05;
         }
-        else if(totalSale >= 100000 && totalSale <= 499999.99){
-            res = 0.15 * totalSale;
+        else if (this.totalSale < 100000) {
+            return this.totalSale * 0.10;
+        }
+        else if (this.totalSale < 500000) {
+            return this.totalSale * 0.15;
         }
         else {
-            res = 0.20 * totalSale;
+            return this.totalSale * 0.20;
         }
-
-        return res;
     }
 
     public void displayComissionEmployee(){
