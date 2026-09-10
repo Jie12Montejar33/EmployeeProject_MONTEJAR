@@ -61,7 +61,6 @@ public class BasePlusCommisonEmployee {
 
     public double computeSalary() {
         double res = 0;
-        double finalres = 0;
         if(totalSale < 50000){
             res = 0.05 * totalSale;
         }
@@ -75,9 +74,9 @@ public class BasePlusCommisonEmployee {
             res = 0.20 * totalSale;
         }
 
-        finalres += baseSalary;
+        res += baseSalary;
 
-        return finalres;
+        return res;
     }
 
     public void displayBasePlusCommissionEmployee(){
@@ -86,13 +85,13 @@ public class BasePlusCommisonEmployee {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("BasePlusCommisonEmployee{");
-        sb.append("empID= ").append(empID);
-        sb.append(", empName= ").append(empName);
-        sb.append(", totalSale = ").append(totalSale);
-        sb.append(", baseSalary = ").append(baseSalary);
+        StringBuilder sb = new StringBuilder("100");
+        sb.append("[ID = ").append(empID);
+        sb.append(", Name= ").append(empName);
+        sb.append(", TotalSale = ").append(totalSale);
+        sb.append(", BaseSalary = ").append(baseSalary);
         sb.append(", Salary = ").append(computeSalary());
-        sb.append('}');
+        sb.append(']');
 
         return sb.toString();
     }

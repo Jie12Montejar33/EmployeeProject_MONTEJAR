@@ -78,13 +78,13 @@ public class HourlyEmployee {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("HourlyEmployee{");
-        sb.append("empID= ").append(empID);
-        sb.append(", empName= ").append(empName);
-        sb.append(", totalHoursWorked=").append(totalHoursWorked);
-        sb.append(", ratePerHour=").append(ratePerHour);
+        StringBuilder sb = new StringBuilder(100);
+        sb.append("[ID = ").append(empID);
+        sb.append(", Name = ").append(empName);
+        sb.append(", TotalHoursWorked =").append(totalHoursWorked);
+        sb.append(", RatePerHour =").append(ratePerHour);
         sb.append(", Salary = ").append(computeSalary());
-        sb.append('}');
+        sb.append(']');
 
         return sb.toString();
     }

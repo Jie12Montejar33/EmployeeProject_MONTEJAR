@@ -72,19 +72,19 @@ public class PieceWorkerEmployee {
     }
 
     public void displayPieceWorkerEmployee(){
-        System.out.printf("[ID = %d, Name = %s, TotalPiecesFinished = %.2f, ratePerPiece = %.2f]\n", empID, empName, totalPiecesFinished, ratePerPiece);
+        System.out.printf("[ID = %d, Name = %s, TotalPiecesFinished = %.2f, RatePerPiece = %.2f]\n", empID, empName, totalPiecesFinished, ratePerPiece);
 
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("PieceWorkerEmployee{");
-        sb.append("empID= ").append(empID);
-        sb.append(", empName= ").append(empName);
-        sb.append(", totalPiecesFinished= ").append(totalPiecesFinished);
-        sb.append(", ratePerPiece= ").append(ratePerPiece);
+        StringBuilder sb = new StringBuilder(100);
+        sb.append("[ID = ").append(empID);
+        sb.append(", Name= ").append(empName);
+        sb.append(", TotalPiecesFinished= ").append(totalPiecesFinished);
+        sb.append(", RatePerPiece= ").append(ratePerPiece);
         sb.append(", Salary = ").append(computeSalary());
-        sb.append('}');
+        sb.append(']');
 
         return sb.toString();
     }

@@ -15,7 +15,8 @@ public class Main {
         double r = h1.computeSalary();
         System.out.println(r);
         h1.setEmpID(67);
-        h1.displayHourlyEmployee();
+
+        System.out.println(h1);
 
 
         PieceWorkerEmployee p1 = new PieceWorkerEmployee(12, "me", 34, 12);
@@ -32,13 +33,14 @@ public class Main {
         em1.setTotalSale(2000);
         em1.displayComissionEmployee();
         System.out.println(em1.computeSalary());
+        System.out.println(em1.toString());
 
         BasePlusCommisonEmployee b1 = new BasePlusCommisonEmployee(3, "medd", 134, 50);
         b1.displayBasePlusCommissionEmployee();
         b1.setEmpName("none");
         b1.displayBasePlusCommissionEmployee();
         double ls34 = b1.computeSalary();
-
         System.out.println(ls34);
+        System.out.println(b1.toString());
     }
 }

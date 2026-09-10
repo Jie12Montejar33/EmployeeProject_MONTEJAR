@@ -70,13 +70,12 @@ public class CommisionEmployee {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("CommisionEmployee{");
-        sb.append("empID= ").append(empId);
-        sb.append(", empName= ").append(empName);
-        sb.append(", totalSale= ").append(totalSale);
+        StringBuilder sb = new StringBuilder(100);
+        sb.append("[ID = ").append(empId);
+        sb.append(", Name= ").append(empName);
+        sb.append(", totalSales = ").append(totalSale);
         sb.append(", Salary = ").append(computeSalary());
-        sb.append('}');
-
+        sb.append(']');
         return sb.toString();
     }
 }
