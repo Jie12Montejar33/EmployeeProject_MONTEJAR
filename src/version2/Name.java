@@ -6,25 +6,31 @@ public class Name {
     private String lname;
     private String suffix;
 
+    public Name(String fname) {
+        this.fname = fname;
+        this.suffix = "";
+        this.mi = "";
+    }
+
+    public Name(String fname, String mi) {
+        this.fname = fname;
+        this.mi = mi;
+        this.suffix = "";
+    }
+
+
+    public Name(String fname, String mi, String lname) {
+        this.fname = fname;
+        this.mi = mi;
+        this.lname = lname;
+        this.suffix = "";
+    }
+
     public Name(String fname, String mi, String lname, String suffix) {
         this.fname = fname;
         this.mi = mi;
         this.lname = lname;
         this.suffix = suffix;
-    }
-
-    public Name(String fname, String lname, String suffix) {
-        this.fname = fname;
-        this.mi = " ";
-        this.lname = lname;
-        this.suffix = suffix;
-    }
-
-    public Name(String fname, String lname) {
-        this.fname = fname;
-        this.mi = " ";
-        this.lname = lname;
-        this.suffix = " ";
     }
 
     public String getFname() {
@@ -59,10 +65,16 @@ public class Name {
         this.suffix = suffix;
     }
 
+    public void displayName(){
+        System.out.println("--- Name & Date Output Verification ---\n");
+        System.out.println(toString());
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(100);
-        sb.append(lname).append(", ").append(fname).append(", ");
-        if()
+        sb.append(lname).append(", ").append(fname).append(" ").append(mi).append(" ").append(suffix);
+
+        return sb.toString();
     }
 }

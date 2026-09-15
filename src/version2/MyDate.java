@@ -1,32 +1,23 @@
 package version2;
 
 public class MyDate {
-    private String day;
-    private int date;
+    private int day;
     private int month;
     private int year;
 
-    public MyDate(String day, int date, int month, int year) {
+    public MyDate(int day, int month, int year) {
         this.day = day;
-        this.date = date;
+
         this.month = month;
         this.year = year;
     }
 
-    public String getDay() {
+    public int getDay() {
         return day;
     }
 
-    public void setDay(String day) {
+    public void setDay(int day) {
         this.day = day;
-    }
-
-    public int getDate() {
-        return date;
-    }
-
-    public void setDate(int date) {
-        this.date = date;
     }
 
     public int getMonth() {
@@ -48,7 +39,7 @@ public class MyDate {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(100);
-        sb.append(date ).append(month).append(year);
+        sb.append(day).append(month).append(year);
 
         return sb.toString();
     }
