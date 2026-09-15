@@ -36,10 +36,16 @@ public class MyDate {
         this.year = year;
     }
 
+    public void displayDate(){
+        System.out.printf("Date: ");
+        System.out.println(toString());
+    }
+
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(100);
-        sb.append(day).append(month).append(year);
+        sb.append(day).append("-").append(month).append("-").append(year);
 
         return sb.toString();
     }

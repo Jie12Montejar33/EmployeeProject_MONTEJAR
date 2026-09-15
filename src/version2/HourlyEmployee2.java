@@ -1,4 +1,6 @@
 package version2;
+import java.time.LocalDate;
+import java.time.Month;
 
 public class HourlyEmployee2 {
     private int empID;
@@ -87,6 +89,25 @@ public class HourlyEmployee2 {
             double op = (totalHoursWorked - 40) * (ratePerHour * 1.5);
             res = rp + op;
         }
+
+        return res;
+    }
+
+    public double computeSalary(int month) {
+        double res;
+        if(this.totalHoursWorked <= 40){
+            res = this.totalHoursWorked * ratePerHour;
+        }
+        else {
+            double rp = 40 * ratePerHour;
+            double op = (totalHoursWorked - 40) * (ratePerHour * 1.5);
+            res = rp + op;
+        }
+
+        if(birthDate== month) {
+            res += 5000;
+        }
+
         return res;
     }
 

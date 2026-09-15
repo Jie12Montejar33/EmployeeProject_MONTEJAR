@@ -1,4 +1,6 @@
 package version2;
+import java.time.LocalDate;
+import java.time.Month;
 
 public class CommisionEmployee2 {
     private int empId;
@@ -81,6 +83,36 @@ public class CommisionEmployee2 {
             return this.totalSale * 0.15;
         }
         else {
+            return this.totalSale * 0.20;
+        }
+    }
+
+    public double computeSalary(int month) {
+        if (this.totalSale <= 0) {
+            return 0.0;
+        }
+        if (this.totalSale < 50000) {
+            if(birthDate == month){
+                return (this.totalSale * 0.05) + 5000;
+            }
+            return this.totalSale * 0.05;
+        }
+        else if (this.totalSale < 100000) {
+            if (this.totalSale < 50000) {
+                return (this.totalSale * 0.10) + 5000;
+            }
+            return this.totalSale * 0.10;
+        }
+        else if (this.totalSale < 500000) {
+            if (this.totalSale < 50000) {
+                return (this.totalSale * 0.15) + 5000;
+            }
+            return this.totalSale * 0.15;
+        }
+        else {
+            if (this.totalSale < 50000) {
+                return (this.totalSale * 0.20) + 5000;
+            }
             return this.totalSale * 0.20;
         }
     }

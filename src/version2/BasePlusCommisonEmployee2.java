@@ -1,6 +1,5 @@
 package version2;
-import java.time.LocalDate;
-import java.time.Month;
+
 
 public class BasePlusCommisonEmployee2 {
     private int empID;
@@ -94,9 +93,29 @@ public class BasePlusCommisonEmployee2 {
 
         res += baseSalary;
 
-        if(this.birthDate == currentMonth) {
+        if(birthDate == currentMonth) {
             res += 5000;
         }
+
+        return res;
+    }
+
+    public double computeSalary() {
+        double res = 0;
+        if(totalSale < 50000){
+            res = 0.05 * totalSale;
+        }
+        else if(totalSale >= 50000 && totalSale <= 99999.99){
+            res = 0.10 * totalSale;
+        }
+        else if(totalSale >= 100000 && totalSale <= 499999.99){
+            res = 0.15 * totalSale;
+        }
+        else {
+            res = 0.20 * totalSale;
+        }
+
+        res += baseSalary;
 
         return res;
     }

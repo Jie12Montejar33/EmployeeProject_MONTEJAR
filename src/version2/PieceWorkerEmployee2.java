@@ -1,4 +1,6 @@
 package version2;
+import java.time.LocalDate;
+import java.time.Month;
 
 public class PieceWorkerEmployee2 {
     private int empID;
@@ -80,6 +82,22 @@ public class PieceWorkerEmployee2 {
         bsp = this.totalPiecesFinished * ratePerPiece;
         bonusp = (totalPiecesFinished / 100) * (10 * ratePerPiece);
         res = bsp + bonusp;
+
+        return res;
+    }
+
+    public double computeSalary(int month){
+        double res = 0;
+        double bsp = 0;
+        double bonusp = 0;
+
+        bsp = this.totalPiecesFinished * ratePerPiece;
+        bonusp = (totalPiecesFinished / 100) * (10 * ratePerPiece);
+        res = bsp + bonusp;
+
+        if(birthDate == month){
+            return res + 5000;
+        }
 
         return res;
     }

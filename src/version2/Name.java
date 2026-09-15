@@ -66,7 +66,7 @@ public class Name {
     }
 
     public void displayName(){
-        System.out.println("--- Name & Date Output Verification ---\n");
+        System.out.printf("Name: ");
         System.out.println(toString());
     }
 
