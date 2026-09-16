@@ -1,6 +1,6 @@
 package version3;
 
-public class BasePlusCommisonEmployee3 {
+public class BasePlusCommisonEmployee3 extends Name {
     private int empID;
     private String Name;
     private double totalSale;

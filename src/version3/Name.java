@@ -1,24 +1,39 @@
 package version3;
 
-public class Name {
+import java.util.Objects;
+
+public class Name extends MyDate {
     private String fname;
     private String mi;
     private String lname;
     private String suffix;
 
+    public Name() {
+        super();
+        this.fname = "";
+        this.mi = "";
+        this.lname = "";
+        this.suffix = "";
+    }
+
     public Name(String fname) {
+        super();
         this.fname = fname;
         this.suffix = "";
         this.mi = "";
+        this.lname = "";
     }
 
     public Name(String fname, String mi) {
+        super();
         this.fname = fname;
         this.mi = mi;
         this.suffix = "";
+        this.lname = "";
     }
 
     public Name(String fname, String mi, String lname) {
+        super();
         this.fname = fname;
         this.mi = mi;
         this.lname = lname;
@@ -26,6 +41,7 @@ public class Name {
     }
 
     public Name(String fname, String mi, String lname, String suffix) {
+        super();
         this.fname = fname;
         this.mi = mi;
         this.lname = lname;
@@ -67,6 +83,27 @@ public class Name {
     public void displayName(){
         System.out.printf("Name: ");
         System.out.println(toString());
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        }
+        if (other == null || getClass() != other.getClass()) {
+            return false;
+        }
+
+        Name name = (Name) other;
+        return Objects.equals(fname, name.fname)
+                && Objects.equals(mi, name.mi)
+                && Objects.equals(lname, name.lname)
+                && Objects.equals(suffix, name.suffix);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fname, mi, lname, suffix);
     }
 
     @Override

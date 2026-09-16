@@ -1,6 +1,6 @@
 package version3;
 
-public class PieceWorkerEmployee3 {
+public class PieceWorkerEmployee3 extends Name {
     private int empID;
     private String Name;
     private float totalPiecesFinished;

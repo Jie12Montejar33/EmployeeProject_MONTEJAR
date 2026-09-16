@@ -1,6 +1,6 @@
 package version3;
 
-public class CommisionEmployee3 {
+public class CommisionEmployee3 extends Name {
     private int empId;
     private String Name;
     private double totalSale;
