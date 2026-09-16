@@ -1,43 +1,17 @@
 package version3;
 
-public class PieceWorkerEmployee3 extends Name {
-    private int empID;
-    private String Name;
+public class PieceWorkerEmployee3 extends Employee {
     private float totalPiecesFinished;
     private double ratePerPiece;
-    private int dateHired;
-    private int birthDate;
 
     public PieceWorkerEmployee3(int empID, String name, float totalPiecesFinished, double ratePerPiece, int dateHired, int birthDate) {
-        this.empID = empID;
-        Name = name;
+        super(empID, name, dateHired, birthDate);
         this.totalPiecesFinished = totalPiecesFinished;
         this.ratePerPiece = ratePerPiece;
-        this.dateHired = dateHired;
-        this.birthDate = birthDate;
     }
 
     public PieceWorkerEmployee3(int empID, String name, int birthDate, int dateHired) {
-        this.empID = empID;
-        Name = name;
-        this.birthDate = birthDate;
-        this.dateHired = dateHired;
-    }
-
-    public int getEmpID() {
-        return empID;
-    }
-
-    public void setEmpID(int empID) {
-        this.empID = empID;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
+        super(empID, name, dateHired, birthDate);
     }
 
     public float getTotalPiecesFinished() {
@@ -54,22 +28,6 @@ public class PieceWorkerEmployee3 extends Name {
 
     public void setRatePerPiece(double ratePerPiece) {
         this.ratePerPiece = ratePerPiece;
-    }
-
-    public int getDateHired() {
-        return dateHired;
-    }
-
-    public void setDateHired(int dateHired) {
-        this.dateHired = dateHired;
-    }
-
-    public int getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(int birthDate) {
-        this.birthDate = birthDate;
     }
 
     public double computeSalary(){
@@ -93,7 +51,7 @@ public class PieceWorkerEmployee3 extends Name {
         bonusp = (totalPiecesFinished / 100) * (10 * ratePerPiece);
         res = bsp + bonusp;
 
-        if(birthDate == month){
+        if(getBirthDate() == month){
             return res + 5000;
         }
 
@@ -101,20 +59,17 @@ public class PieceWorkerEmployee3 extends Name {
     }
 
     public void displayPieceWorkerEmployee(){
-        System.out.printf("[ID = %d, Name = %s, TotalPiecesFinished = %.2f, RatePerPiece = %.2f]\n", empID, Name, totalPiecesFinished, ratePerPiece);
+        System.out.printf("[ID = %d, Name = %s, TotalPiecesFinished = %.2f, RatePerPiece = %.2f]\n", getEmpID(), getName(), totalPiecesFinished, ratePerPiece);
 
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(100);
-        sb.append("[ID = ").append(empID);
-        sb.append(", Name= ").append(Name);
+        sb.append("[").append(employeeDetails());
         sb.append(", TotalPiecesFinished= ").append(totalPiecesFinished);
         sb.append(", RatePerPiece= ").append(ratePerPiece);
         sb.append(", Salary = ").append(computeSalary());
-        sb.append(", Hire Date = ").append(dateHired);
-        sb.append(", Birth Date = ").append(birthDate);
         sb.append(']');
 
         return sb.toString();
