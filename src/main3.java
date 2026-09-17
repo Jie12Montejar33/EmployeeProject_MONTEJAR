@@ -8,6 +8,7 @@ import version3.PieceWorkerEmployee3;
 
 public class main3 {
     public static void main(String[] args) {
+        int size = 6, count = 0;
         MyDate[] em = {
                 new MyDate("first", "C.", "last", "", 12, 1, 2009),
                 new MyDate(1, 1, 2008)
