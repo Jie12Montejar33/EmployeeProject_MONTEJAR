@@ -2,14 +2,13 @@ package version3;
 
 import java.util.Objects;
 
-public class Name extends MyDate {
+public class Name  {
     private String fname;
     private String mi;
     private String lname;
     private String suffix;
 
     public Name() {
-        super();
         this.fname = "";
         this.mi = "";
         this.lname = "";
@@ -17,7 +16,7 @@ public class Name extends MyDate {
     }
 
     public Name(String fname) {
-        super();
+
         this.fname = fname;
         this.suffix = "";
         this.mi = "";
@@ -25,7 +24,7 @@ public class Name extends MyDate {
     }
 
     public Name(String fname, String mi) {
-        super();
+
         this.fname = fname;
         this.mi = mi;
         this.suffix = "";
@@ -33,7 +32,7 @@ public class Name extends MyDate {
     }
 
     public Name(String fname, String mi, String lname) {
-        super();
+
         this.fname = fname;
         this.mi = mi;
         this.lname = lname;
@@ -41,7 +40,7 @@ public class Name extends MyDate {
     }
 
     public Name(String fname, String mi, String lname, String suffix) {
-        super();
+
         this.fname = fname;
         this.mi = mi;
         this.lname = lname;
