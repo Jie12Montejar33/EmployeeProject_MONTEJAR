@@ -2,7 +2,7 @@ package version3;
 
 import java.util.Objects;
 
-public class Name  {
+public class Name implements Cloneable {
     private String fname;
     private String mi;
     private String lname;
@@ -111,5 +111,14 @@ public class Name  {
         sb.append(lname).append(", ").append(fname).append(" ").append(mi).append(" ").append(suffix);
 
         return sb.toString();
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null; // This catch block is required by Java, just in case cloning fails
+        }
     }
 }

@@ -75,6 +75,12 @@ public class MyDate extends Name { // Now a subclass of Name
 
     @Override
     public String toString() {
-        return super.toString() + " | Date: " + day + "-" + month + "-" + year;
+        return super.toString() + "| Date: " + day + "-" + month + "-" + year;
     }
+
+    @Override
+    public MyDate clone(){
+        return (MyDate) super.clone();
+    }
+
 }
