@@ -1,106 +1,103 @@
 package version5;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EmployeeRoster {
-    private int size;
-    private Employee[] empList;
-    private int count;
+    // 'size' is now treated as a maximum capacity limit since ArrayList resizes dynamically
+    private int maxCapacity;
+    private List<Employee> empList;
 
     public EmployeeRoster() {
         this(10);
     }
 
     public EmployeeRoster(int size) {
-        this.size = size > 0 ? size : 10;
-        this.empList = new Employee[this.size];
-        this.count = 0;
+        this.maxCapacity = size > 0 ? size : 10;
+        this.empList = new ArrayList<>(this.maxCapacity);
     }
 
     public int getSize() {
-        return size;
+        return maxCapacity;
     }
 
     public void setSize(int size) {
-        this.size = size > 0 ? size : 10;
-        Employee[] newList = new Employee[this.size];
-        for (int i = 0; i < count && i < this.size; i++) {
-            newList[i] = empList[i];
+        this.maxCapacity = size > 0 ? size : 10;
+
+        // Truncate the list if the new max capacity is smaller than current employee count
+        if (empList.size() > this.maxCapacity) {
+            empList = new ArrayList<>(empList.subList(0, this.maxCapacity));
         }
-        this.empList = newList;
     }
 
-    public Employee[] getEmpList() {
-        Employee[] result = new Employee[count];
-        System.arraycopy(empList, 0, result, 0, count);
-        return result;
+    // Changed to return a List instead of an array.
+    // Returns a copy to protect the internal list from being modified externally.
+    public List<Employee> getEmpList() {
+        return new ArrayList<>(empList);
     }
 
-    public void setEmpList(Employee[] empList) {
-        this.empList = empList;
-        this.count = (empList == null) ? 0 : empList.length;
-        this.size = Math.max(this.size, this.count);
+    public void setEmpList(List<Employee> empList) {
+        if (empList == null) {
+            this.empList = new ArrayList<>();
+        } else {
+            this.empList = new ArrayList<>(empList);
+        }
+        this.maxCapacity = Math.max(this.maxCapacity, this.empList.size());
     }
 
+    // ArrayList keeps track of its own size, replacing the need for a 'count' variable
     public int getCount() {
-        return count;
+        return empList.size();
     }
 
-    public void setCount(int count) {
-        this.count = Math.max(0, count);
-    }
+    // setCount(int count) has been removed.
+    // You cannot arbitrarily set the count of an ArrayList without adding/removing elements.
 
     public boolean addEmployee(Employee em2) {
         if (em2 == null) {
             return false;
         }
-        if (count >= size) {
+        if (empList.size() >= maxCapacity) {
             System.out.println("full");
             return false;
         }
 
-        empList[count] = em2;
-        count++;
+        empList.add(em2);
         return true;
     }
 
     public Employee removeEmployee(int id) {
-        if (count == 0) {
+        if (empList.isEmpty()) {
             System.out.println("empty");
             return null;
         }
 
-        int index = -1;
-        for (int i = 0; i < count; i++) {
-            if (empList[i] != null && empList[i].getEmpID() == id) {
-                index = i;
-                break;
+        for (int i = 0; i < empList.size(); i++) {
+            Employee emp = empList.get(i);
+            // Note: Used getEmpID() as it was in your original remove method
+            if (emp != null && emp.getEmpID() == id) {
+                // ArrayList automatically shifts elements to the left when you remove!
+                return empList.remove(i);
             }
         }
 
-        if (index == -1) {
-            return null;
-        }
-
-        Employee removed = empList[index];
-        for (int i = index; i < count - 1; i++) {
-            empList[i] = empList[i + 1];
-        }
-        empList[count - 1] = null;
-        count--;
-        return removed;
+        return null;
     }
 
+    // Kept your wrapper method in case it is referenced elsewhere
     public Employee remnoveEmployee(int id) {
         return removeEmployee(id);
     }
 
     public Employee searchEmployee(int id) {
-        if (count == 0) {
+        if (empList.isEmpty()) {
             return null;
         }
 
-        for (int i = 0; i < count; i++) {
-            if (empList[i] != null && empList[i].getEmpId() == id) {
-                return empList[i];
+        for (Employee emp : empList) {
+            // Note: Used getEmpId() as it was in your original search method
+            if (emp != null && emp.getEmpId() == id) {
+                return emp;
             }
         }
         return null;
@@ -108,90 +105,79 @@ public class EmployeeRoster {
 
     public int countHE() {
         int co = 0;
-        for (int i = 0; i < count; i++) {
-            if (empList[i] instanceof HourlyEmployee) {
-                co++;
-            }
+        for (Employee emp : empList) {
+            if (emp instanceof HourlyEmployee) co++;
         }
         return co;
     }
 
     public int countPWE() {
         int co = 0;
-        for (int i = 0; i < count; i++) {
-            if (empList[i] instanceof PieceWorkerEmployee) {
-                co++;
-            }
+        for (Employee emp : empList) {
+            if (emp instanceof PieceWorkerEmployee) co++;
         }
         return co;
     }
 
     public int countCE() {
         int co = 0;
-        for (int i = 0; i < count; i++) {
-            if (empList[i] instanceof CommisionEmployee) {
-                co++;
-            }
+        for (Employee emp : empList) {
+            if (emp instanceof CommisionEmployee) co++;
         }
         return co;
     }
 
     public int countBPCE() {
         int co = 0;
-        for (int i = 0; i < count; i++) {
-            if (empList[i] instanceof BasePlusCommisonEmployee) {
-                co++;
-            }
+        for (Employee emp : empList) {
+            if (emp instanceof BasePlusCommisonEmployee) co++;
         }
         return co;
     }
 
     public void displayHE() {
-        for (int i = 0; i < count; i++) {
-            if (empList[i] instanceof HourlyEmployee) {
-                ((HourlyEmployee) empList[i]).displayHourlyEmployee();
+        for (Employee emp : empList) {
+            if (emp instanceof HourlyEmployee) {
+                ((HourlyEmployee) emp).displayHourlyEmployee();
             }
         }
     }
 
     public void displayPWE() {
-        for (int i = 0; i < count; i++) {
-            if (empList[i] instanceof PieceWorkerEmployee) {
-                ((PieceWorkerEmployee) empList[i]).displayPieceWorkerEmployee();
+        for (Employee emp : empList) {
+            if (emp instanceof PieceWorkerEmployee) {
+                ((PieceWorkerEmployee) emp).displayPieceWorkerEmployee();
             }
         }
     }
 
     public void displayCE() {
-        for (int i = 0; i < count; i++) {
-            if (empList[i] instanceof CommisionEmployee) {
-                ((CommisionEmployee) empList[i]).displayComissionEmployee();
+        for (Employee emp : empList) {
+            if (emp instanceof CommisionEmployee) {
+                ((CommisionEmployee) emp).displayComissionEmployee();
             }
         }
     }
 
     public void displayBPCE() {
-        for (int i = 0; i < count; i++) {
-            if (empList[i] instanceof BasePlusCommisonEmployee) {
-                ((BasePlusCommisonEmployee) empList[i]).displayBasePlusCommissionEmployee();
+        for (Employee emp : empList) {
+            if (emp instanceof BasePlusCommisonEmployee) {
+                ((BasePlusCommisonEmployee) emp).displayBasePlusCommissionEmployee();
             }
         }
     }
 
     public void displayALLEmployees() {
-        for (int i = 0; i < count; i++) {
-            if (empList[i] != null) {
-                System.out.println(empList[i].getClass().getSimpleName());
+        for (Employee emp : empList) {
+            if (emp != null) {
+                System.out.println(emp.getClass().getSimpleName());
             }
         }
     }
 
     public void displayPayroll(int month) {
-        for (int i = 0; i < count; i++) {
-            Employee emp = empList[i];
-            if (emp == null) {
-                continue;
-            }
+        for (Employee emp : empList) {
+            if (emp == null) continue;
 
             if (emp instanceof HourlyEmployee) {
                 HourlyEmployee hem = (HourlyEmployee) emp;
